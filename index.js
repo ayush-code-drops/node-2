@@ -16,6 +16,7 @@ console.log(path.join(__dirname, "test", "test.js"));
 //Working with file systems
 const fs = require('fs')
 
+//Reading a file
 fs.readFile(path.join(__dirname, "hello.txt"), (err, data) => {
     if (err) {
         console.log("error", err)
@@ -24,6 +25,42 @@ fs.readFile(path.join(__dirname, "hello.txt"), (err, data) => {
 
     console.log("data",data.toString())
 })
+//Writing a file
+fs.writeFile(path.join(__dirname, "hello.txt"), "Ayush you need to focus bro", (err) => {
+    if (err) {
+        console.log(error);
+        return
+    } 
+    
+    console.log("writing file");
+})
 
+//Renaming a file
+
+fs.rename(path.join(__dirname, "hello.txt"), path.join(__dirname,"hello7.txt"), (err) => {
+    if (err) {
+        return
+    }
+console.log("File Renamed");
+})
+
+//making a directory
+
+fs.mkdir(path.join(__dirname, "tempdir"),(err)=> {
+    if (err) {
+        console.log("err", err);
+        return
+    }
+console.log("directory created");
+})
+
+//Renaming a file
+
+fs.rename(path.join(__dirname, "hello.txt"), path.join(__dirname,"tempdir","hello7.txt"), (err) => {
+    if (err) {
+        return
+    }
+console.log("File Renamed");
+})
 
 
